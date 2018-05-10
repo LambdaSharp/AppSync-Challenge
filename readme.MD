@@ -4,7 +4,7 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 > SUBJECT: Data project that must be completed!
 >
-> FROM: Bob aka DBA <mailto:<dba@lambdasharp.io>>
+> FROM: Dave aka DBA <mailto:<dba@lambdasharp.io>>
 >
 > We just acquirered **Northwind Traders**! We need an API ASAP and your the only developer available right now. I've created a partial GraphQL schema and a mock datasource lambda function to start querying the data. Use AWS's DynamoDB for the datasource. We need this in production **TONIGHT!**
 >
