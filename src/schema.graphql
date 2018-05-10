@@ -1,0 +1,40 @@
+type Customer {
+  CustomerID: ID!
+  CompanyName: String
+  ContactName: String
+  ContactTitle: String
+  Address: String
+  City: String
+  Region: String
+  PostalCode: String
+  Country: String
+  Phone: String
+  Fax: String
+  relatedOrders: [Order]
+}
+
+type Order {
+  OrderID: ID!
+  CustomerID: String
+  EmployeeID: Int
+  OrderDate: String
+  RequiredDate: String
+  ShippedDate: String
+  ShipVia: Int
+  Freight: Float
+  ShipName: String
+  ShipAddress: String
+  ShipCity: String
+  ShipRegion: String
+  ShipPostalCode: String
+  ShipCountry: String
+}
+
+type Query {
+  getCustomer(id: ID!): Customer
+  allCustomers: [Customer]
+}
+
+schema {
+  query: Query
+}
