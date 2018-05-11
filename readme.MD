@@ -16,7 +16,15 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 ## Level 0 - Setup
 
+
+
 * Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
+  1. Navigate to your [Lambda Console](console.aws.amazon.com/lambda) and click **Create function**.
+  2. Keep the default **Author from scratch** selected.
+  3. Name your function.
+  4. Keep the default **Runtime** (NodeJs).
+  5. Select the role you created from the **Existing Role** dropdown.
+  6. Click **Create function** to create function
 * Create a **new api** in AppSync as **LambdaSharp** with a **Custom Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
 * Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function.
 
