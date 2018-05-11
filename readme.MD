@@ -90,7 +90,7 @@ query {
 query {
   getCustomer(id: "ANTON") {
    	ContactName
-    relatedOrders { // lambda invocation
+    relatedOrders { # lambda invocation
       __typename
       OrderID
     }
