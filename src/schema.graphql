@@ -10,7 +10,7 @@ type Customer {
   Country: String
   Phone: String
   Fax: String
-  relatedOrders: [Order]
+  getCustomerOrders: [Order]
 }
 
 type Order {

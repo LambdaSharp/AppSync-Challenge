@@ -73,7 +73,7 @@ query {
 }
 ```
 
-* Add a resolver to get orders of a single customer. In Schema, Data Types > `Customer` > `relatedOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+* Add a resolver to get orders of a single customer. In Schema, Data Types > `Customer` > `getCustomerOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
 ```
 {
@@ -90,7 +90,7 @@ query {
 query {
   getCustomer(id: "ANTON") {
    	ContactName
-    relatedOrders { # lambda invocation
+    getCustomerOrders { # lambda invocation
       __typename
       OrderID
     }
