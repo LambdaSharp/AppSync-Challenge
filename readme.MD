@@ -16,7 +16,7 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 ## Level 0 - Setup
 
-* Create a new lambda function from this repo. [src/northwindTradersMockDb.js](northwindTradersMockDb.js)
+* Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
 * Create a **new api** in AppSync as **LambdaSharp** with a **Custom Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
 * Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function.
 
