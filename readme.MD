@@ -16,8 +16,6 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 ## Level 0 - Setup
 
-
-
 * Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
   1. Navigate to your [Lambda Console](console.aws.amazon.com/lambda) and click **Create function**.
   2. Keep the default **Author from scratch** selected.
@@ -30,6 +28,15 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 
 ## Level 1 - Query
+
+<details>
+  <summary>AWS Resources</summary>
+  
+  [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html)
+  
+  [Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-lambda-resolvers.html)
+</details>
+
 
 * Add a resolver to get all customers. In Schema, Data Types > `Query` > `allCustomers`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
@@ -107,33 +114,39 @@ query {
 ```
 
 ## Level 3 - Schema
+[AWS Resource - Schema design](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html)
 
-* Add Employee Type in the schema
+* Add Employee type in the schema.
 * Add a resolver.
-* An Employee is connected to each order
+* An Employee type is connected to an Order type.
 
-
-
-## Level 4
+## Level 4 - Mutations
 
 ## Boss
- * Add another datasource for appsync (lambda function)
+ 
+ * Add another data source for AppSync (lambda function).
+ * Extend a type in the schema to use the new data source by attaching a resolver.
+ * Build a query and show us customer data with new information!
+ 
+ <details>
+  <summary>Suggested Data Sources</summary>
+  
+  * [JSON Currency Exchange](http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y)
+  * [Google Trends](https://trends.google.com/trends/)
+</details>
+ 
  
 
+ <details>
+  <summary>Additional Resources</summary>
+  
+  * [AWS Resolvers Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-context-reference.html)
+  * [AWS Building a client](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app-javascript.html)
+  
+</details>
 
-## References
 
-https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html
-
-https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-lambda-resolvers.html
-
-https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html
-
-https://docs.aws.amazon.com/appsync/latest/devguide/resolver-context-reference.html
-
-https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app-javascript.html
-
-## Datasources
+## Data Sources
 https://github.com/tmcnab/northwind-mongo
 
 https://www.csvjson.com/csv2json
