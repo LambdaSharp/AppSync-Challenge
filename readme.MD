@@ -119,6 +119,7 @@ query {
 * Add Employee type in the schema.
 * Add a resolver.
 * An Employee type is connected to an Order type.
+* Construct a query that will show employee's name on a customer's order.
 
 ## Level 4 - Mutations
 
