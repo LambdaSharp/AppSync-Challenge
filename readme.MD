@@ -32,9 +32,10 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 <details>
   <summary>AWS Resources</summary>
   
-  [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html)
+  * [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html)
+  * [Configure Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/configuring-resolvers.html)
+  * [Lambda Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-lambda-resolvers.html)
   
-  [Resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-lambda-resolvers.html)
 </details>
 
 
@@ -119,7 +120,7 @@ query {
 * Add Employee type in the schema.
 * Add a resolver.
 * An Employee type is connected to an Order type.
-* Construct a query that will show employee's name on a customer's order.
+* Construct a query that will show the employee's name on a customer's order.
 
 ## Level 4 - Mutations
 
@@ -141,9 +142,9 @@ query {
  <details>
   <summary>Additional Resources</summary>
   
-  * [AWS Resolvers Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-context-reference.html)
-  * [AWS Building a client](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app-javascript.html)
-  
+  * [Resolver Context Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-context-reference.html)
+  * [Building a client](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app-javascript.html)
+  * [Common Mistakes](https://docs.aws.amazon.com/appsync/latest/devguide/troubleshooting-and-common-mistakes.html)
 </details>
 
 
