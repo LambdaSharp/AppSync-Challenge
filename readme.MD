@@ -153,6 +153,19 @@ query {
 
 
 ## Level 4 - Mutations
+WIP 
+
+* Add a mutation type.
+* Resolve to lambda function method `updateOrder`
+
+
+```
+type Mutation {
+    updateOrder(order: Order!): Order
+}
+
+```
+
 
 ## Boss
  
