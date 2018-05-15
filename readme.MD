@@ -122,7 +122,9 @@ query {
 * An Employee type is connected to an Order type.
 * Construct a query that will show the employee's name on a customer's order.
 
-Example of employee data
+<details>
+  <summary>Example of employee data</summary>
+
 ```
 {
     EmployeeID: 9,
@@ -146,6 +148,9 @@ Example of employee data
     PhotoPath: "http://accweb/emmployees/davolio.bmp"
 }
 ```
+
+</details>
+
 
 ## Level 4 - Mutations
 
