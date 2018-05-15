@@ -122,6 +122,31 @@ query {
 * An Employee type is connected to an Order type.
 * Construct a query that will show the employee's name on a customer's order.
 
+Example of an Employee type
+```
+{
+    EmployeeID: 9,
+    LastName: "Dodsworth",
+    FirstName: "Anne",
+    Title: "Sales Representative",
+    TitleOfCourtesy: "Ms.",
+    BirthDate: "1966-01-27 00:00:00.000",
+    HireDate: "1994-11-15 00:00:00.000",
+    Address: "7 Houndstooth Rd.",
+    City: "London",
+    Region: "NULL",
+    PostalCode: "WG2 7LT",
+    Country: "UK",
+    HomePhone: "(71) 555-4444",
+    Extension: 452,
+    Photo:"",
+    Notes:
+      "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
+    ReportsTo: 5,
+    PhotoPath: "http://accweb/emmployees/davolio.bmp"
+}
+```
+
 ## Level 4 - Mutations
 
 ## Boss
