@@ -192,7 +192,7 @@ type Mutation {
 
 ## Demo Time!
 
-Show us the construct queries!
+Show us the constructed queries!
 
 
 ## Data Sources
