@@ -7746,6 +7746,10 @@ exports.handler = (event, context, callback) => {
     case "allEmployees":
       callback(null, employees);
       break;
+    case "getEmployee":
+        var id = event.arguments.id;
+        callback(null, employees.find(employee => employee.EmployeeID == id));
+        break;
     default:
     callback("Unknown field, unable to resolve" + event.field, null);
     break;
