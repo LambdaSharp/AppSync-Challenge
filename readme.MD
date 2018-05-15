@@ -122,7 +122,7 @@ query {
 * An Employee type is connected to an Order type.
 * Construct a query that will show the employee's name on a customer's order.
 
-Example of an Employee type
+Example of employee data
 ```
 {
     EmployeeID: 9,
