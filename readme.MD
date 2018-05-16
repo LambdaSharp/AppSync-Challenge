@@ -164,6 +164,7 @@ Based on the previous levels, build the following:
  
 * Add a mutation type for updating an order.
 * Resolve to lambda function method `updateOrder`
+* Write a mutation in the query window to update the `ShippedDate` field.
 
 Update order schema entry
 
