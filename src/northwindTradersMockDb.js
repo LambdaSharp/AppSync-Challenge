@@ -7747,7 +7747,7 @@ exports.handler = (event, context, callback) => {
       callback(null, employees);
       break;
     case "getEmployee":
-        var id = event.arguments.id;
+        var id = event.source.EmployeeID;
         callback(null, employees.find(employee => employee.EmployeeID == id));
         break;
     default:
