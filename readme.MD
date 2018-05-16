@@ -14,6 +14,8 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 ![Northwind Traders database schema](http://archive.oreilly.com/oreillyschool/courses/dba3/images/FinalProject/Northwind.png)
 
+
+
 ## Level 0 - Setup
 
 * Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
@@ -27,6 +29,7 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 * Create a **new api** in AppSync as **LambdaSharp** with a **Custom Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
 * Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function. Use a new role for this.
 
+Helpful hint: Be sure you can access the CloudWatch trail events for this lambda funciton.
 
 ## Level 1 - Query
 
