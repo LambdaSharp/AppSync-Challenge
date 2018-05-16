@@ -156,17 +156,21 @@ Based on the previous levels, build the following:
 
 
 ## Level 4 - Mutations
-WIP 
-
-* Add a mutation type.
+ <details>
+  <summary>Helpful Resources</summary>
+  * [AWS Resource](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html#adding-a-mutation-type)
+  * [Quick start writing queries](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html)
+</details>
+ 
+* Add a mutation type for updating an order.
 * Resolve to lambda function method `updateOrder`
 
+Update order schema entry
 
 ```
 type Mutation {
-    updateOrder(order: Order!): Order
+	updateOrder(OrderID: Int, ShippedDate: String): Order
 }
-
 ```
 
 
