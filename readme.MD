@@ -6,7 +6,7 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 >
 > FROM: Dave aka DBA <mailto:<dba@lambdasharp.io>>
 >
-> We just acquirered **Northwind Traders**! We need an API ASAP and your the only developer available right now. I've created a partial GraphQL schema and a mock datasource lambda function to start querying the data. We need this in production **TONIGHT!**
+> We just acquirered **Northwind Traders**! We need an API ASAP and your the only developer available right now. I've created a partial GraphQL schema and a (not so pretty) mock datasource lambda function to start querying the data. We need this in production **TONIGHT!**
 >
 > Thanks,
 >
@@ -20,12 +20,12 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
   1. Navigate to your [Lambda Console](console.aws.amazon.com/lambda) and click **Create function**.
   2. Keep the default **Author from scratch** selected.
   3. Name your function.
-  4. Keep the default **Runtime** (NodeJs 8.10).
-  5. Set a timeout of at 10 seconds.
+  4. Keep the default **Runtime** (NodeJs 6.10).
+  5. Set a timeout of 10 seconds.
   6. Select the role you created from the **Existing Role** dropdown.
   7. Click **Create function** to create function
 * Create a **new api** in AppSync as **LambdaSharp** with a **Custom Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
-* Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function.
+* Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function. Use a new role for this.
 
 
 ## Level 1 - Query
@@ -118,8 +118,10 @@ query {
 ## Level 3 - Schema
 [AWS Resource - Schema design](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html)
 
+Based on the previous levels, build the following:
+
 * Add Employee type in the schema.
-* Add a resolver.
+* Add a resolver. data source field `getEmployee` can be resolved.
 * An Employee type is connected to an Order type.
 * Construct a query that will show the employee's name on a customer's order.
 
