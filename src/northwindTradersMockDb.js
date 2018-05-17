@@ -7751,9 +7751,8 @@ exports.handler = (event, context, callback) => {
         callback(null, employees.find(employee => employee.EmployeeID == id));
         break;
     case "updateOrder":
-      callback(null, event.arguments);
       var id = event.arguments.OrderID;
-      var order = orders.filter(order => order.OrderID === id);
+      var order = orders.find(order => order.OrderID === id);
       order.ShippedDate = event.arguments.ShippedDate;
       callback(null, order);
       break;
