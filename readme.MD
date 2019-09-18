@@ -189,14 +189,14 @@ You know you did it right when you send a new **ShippedDate** and returns with t
 
 ## Boss
 
-- Add another data source for AppSync (lambda function).
-- Extend a type in the schema to use the new data source by attaching a resolver.
+- Add another data source for AppSync (DynamoDB is a good option).
+- Extend a type in the schema to use the new data source.
 - Build a query and show us customer data with new information!
 
  <details>
   <summary>Suggested Data Sources</summary>
   
-  * [JSON Currency Exchange](http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y)
+  * [JSON Currency Exchange](https://free.currencyconverterapi.com/)
   * [Google Trends](https://trends.google.com/trends/)
 </details>
 
