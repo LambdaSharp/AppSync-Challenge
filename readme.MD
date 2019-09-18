@@ -47,7 +47,7 @@ Helpful hint: Be sure you can access the CloudWatch trail events for this lambda
   
 </details>
 
-- Add a resolver to get all customers. In Schema, Data Types > `Query` > `allCustomers`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+- Add a resolver to get all customers. In Schema, right pane (no scroll bar but it will scroll) > `Query` > `allCustomers`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
 ```json
 {
@@ -59,7 +59,7 @@ Helpful hint: Be sure you can access the CloudWatch trail events for this lambda
 }
 ```
 
-- Add a resolver to get a single customer. In Schema, Data Types > `Query` > `getCustomer`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+- Add a resolver to get a single customer. In Schema, right pane (no scroll bar but it will scroll) > `Query` > `getCustomer`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
 ```json
 {
@@ -98,7 +98,7 @@ query {
 }
 ```
 
-- Add a resolver to get orders of a single customer. In Schema, Data Types > `Customer` > `getCustomerOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+- Add a resolver to get orders of a single customer. In Schema, right pane (no scroll bar but it will scroll) > `Customer` > `getCustomerOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
 ```json
 {
@@ -177,13 +177,15 @@ Based on the previous levels, build the following:
 * Resolve to lambda function method `updateOrder`
 * Write a mutation in the query window to update the `ShippedDate` field.
 
-Update order schema entry
-
 ```graphql
 type Mutation {
   updateOrder(OrderID: Int, ShippedDate: String): Order
 }
 ```
+
+Add `mutation: Mutation` to the type `Schema`.  Construct an update order in the `Queries`.  This resource is helpful: [AWS Run Queries and Mutations](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-write-queries.html)
+
+You know you did it right when you send a new **ShippedDate** and returns with the order object as expected.
 
 ## Boss
 
@@ -208,7 +210,7 @@ type Mutation {
 
 ## Demo Time!
 
-Show us the constructed queries!
+Show us your **Schema** and run some queries in front of us!
 
 ## Data Sources
 
