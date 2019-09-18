@@ -20,14 +20,19 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
   1. Navigate to your [Lambda Console](console.aws.amazon.com/lambda) and click **Create function**.
   2. Keep the default **Author from scratch** selected.
   3. Name your function.
-  4. Keep the default **Runtime** (NodeJs 6.10).
+  4. Use the **Runtime** (NodeJs 10.x).
   5. Set a timeout of 10 seconds.
   6. Select the role you created from the **Existing Role** dropdown.
   7. Click **Create function** to create function
 - Create a **new api** in AppSync
   1. Click **Build from Scratch** option with the name **HackathonApp**.
   2. Click **Edit Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
-- Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function. Use a new role for this.
+- Create new **Data Source** in AppSync
+  1. Data source name: **NorthwindTraders**.
+  2. Data source type: **AWS Lambda Function**.
+  3. Region: sames as the lambda function created previously (likely US-EAST-1)
+  4. Data source: Reference the lambda function created previously.
+  5. Use **New role** option.
 
 Helpful hint: Be sure you can access the CloudWatch trail events for this lambda function.
 
