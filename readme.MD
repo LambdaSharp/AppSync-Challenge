@@ -14,11 +14,9 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
 
 ![Northwind Traders database schema](http://archive.oreilly.com/oreillyschool/courses/dba3/images/FinalProject/Northwind.png)
 
-
-
 ## Level 0 - Setup
 
-* Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
+- Create a new lambda function from this repo. [northwindTradersMockDb.js](src/northwindTradersMockDb.js)
   1. Navigate to your [Lambda Console](console.aws.amazon.com/lambda) and click **Create function**.
   2. Keep the default **Author from scratch** selected.
   3. Name your function.
@@ -26,10 +24,12 @@ Congratulations! Welcome to Lambda Sharp, LLC! A **fictitious** company that you
   5. Set a timeout of 10 seconds.
   6. Select the role you created from the **Existing Role** dropdown.
   7. Click **Create function** to create function
-* Create a **new api** in AppSync as **LambdaSharp** with a **Custom Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
-* Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function. Use a new role for this.
+- Create a **new api** in AppSync
+  1. Click **Build from Scratch** option with the name **HackathonApp**.
+  2. Click **Edit Schema**. Copy/paste [schema.graphql](src/schema.graphql) contents in to the **Schema** window. Save.
+- Create new Data Source in AppSync as `NorthwindTraders` referencing the new lambda function. Use a new role for this.
 
-Helpful hint: Be sure you can access the CloudWatch trail events for this lambda funciton.
+Helpful hint: Be sure you can access the CloudWatch trail events for this lambda function.
 
 ## Level 1 - Query
 
@@ -42,35 +42,34 @@ Helpful hint: Be sure you can access the CloudWatch trail events for this lambda
   
 </details>
 
+- Add a resolver to get all customers. In Schema, Data Types > `Query` > `allCustomers`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
-* Add a resolver to get all customers. In Schema, Data Types > `Query` > `allCustomers`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
-
-```
+```json
 {
-    "version" : "2017-02-28",
-    "operation": "Invoke",
-    "payload": {
-    	"field":"allCustomers"
-    }
+  "version": "2017-02-28",
+  "operation": "Invoke",
+  "payload": {
+    "field": "allCustomers"
+  }
 }
 ```
 
-* Add a resolver to get a single customer. In Schema, Data Types > `Query` > `getCustomer`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+- Add a resolver to get a single customer. In Schema, Data Types > `Query` > `getCustomer`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
-```
+```json
 {
-    "version": "2017-02-28",
-    "operation": "Invoke",
-    "payload": {
-        "field": "getCustomer",
-        "arguments":  $util.toJson($context.arguments)
-    }
+  "version": "2017-02-28",
+  "operation": "Invoke",
+  "payload": {
+    "field": "getCustomer",
+    "arguments": $util.toJson($context.arguments)
+  }
 }
 ```
 
-* In `Queries`, query for customers.
+- In `Queries`, query for customers.
 
-```
+```graphql
 query {
   allCustomers {
     CustomerID
@@ -81,8 +80,9 @@ query {
 
 ## Level 2 - Query Related data
 
-* Get a single customer order using `getCustomer`
-```
+- Get a single customer order using `getCustomer`
+
+```graphql
 query {
   getCustomer(id: "ADD A CUSTOMER ID HERE") {
     __typename
@@ -93,24 +93,27 @@ query {
 }
 ```
 
-* Add a resolver to get orders of a single customer. In Schema, Data Types > `Customer` > `getCustomerOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
+- Add a resolver to get orders of a single customer. In Schema, Data Types > `Customer` > `getCustomerOrders`. Use the lambda function `NorthwindTraders` > Click Attach. Add the request mapping template.
 
-```
+```json
 {
-    "version" : "2017-02-28",
-    "operation": "Invoke",
-    "payload": {
-        "field": "getCustomerOrders",
-        "source":  $utils.toJson($context.source)
-    }
+  "version": "2017-02-28",
+  "operation": "Invoke",
+  "payload": {
+    "field": "getCustomerOrders",
+    "source": $utils.toJson($context.source)
+  }
 }
 ```
-* Get a single customer's orders
-```
+
+- Get a single customer's orders
+
+```graphql
 query {
   getCustomer(id: "ANTON") {
-   	ContactName
-    getCustomerOrders { # lambda invocation
+    ContactName
+    getCustomerOrders {
+      # lambda invocation
       __typename
       OrderID
     }
@@ -119,46 +122,46 @@ query {
 ```
 
 ## Level 3 - Schema
+
 [AWS Resource - Schema design](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html)
 
 Based on the previous levels, build the following:
 
-* Add Employee type in the schema.
-* Add a resolver. data source field `getEmployee` can be resolved.
-* An Employee type is connected to an Order type.
-* Construct a query that will show the employee's name on a customer's order.
+- Add Employee type in the schema.
+- Add a resolver. data source field `getEmployee` can be resolved.
+- An Employee type is connected to an Order type.
+- Construct a query that will show the employee's name on a customer's order.
 
 <details>
   <summary>Example of employee data</summary>
 
-```
+```json
 {
-    EmployeeID: 9,
-    LastName: "Dodsworth",
-    FirstName: "Anne",
-    Title: "Sales Representative",
-    TitleOfCourtesy: "Ms.",
-    BirthDate: "1966-01-27 00:00:00.000",
-    HireDate: "1994-11-15 00:00:00.000",
-    Address: "7 Houndstooth Rd.",
-    City: "London",
-    Region: "NULL",
-    PostalCode: "WG2 7LT",
-    Country: "UK",
-    HomePhone: "(71) 555-4444",
-    Extension: 452,
-    Photo:"",
-    Notes:
-      "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
-    ReportsTo: 5,
-    PhotoPath: "http://accweb/emmployees/davolio.bmp"
+  "EmployeeID": 9,
+  "LastName": "Dodsworth",
+  "FirstName": "Anne",
+  "Title": "Sales Representative",
+  "TitleOfCourtesy": "Ms.",
+  "BirthDate": "1966-01-27 00:00:00.000",
+  "HireDate": "1994-11-15 00:00:00.000",
+  "Address": "7 Houndstooth Rd.",
+  "City": "London",
+  "Region": "NULL",
+  "PostalCode": "WG2 7LT",
+  "Country": "UK",
+  "HomePhone": "(71) 555-4444",
+  "Extension": 452,
+  "Photo": "",
+  "Notes": "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
+  "ReportsTo": 5,
+  "PhotoPath": "http://accweb/emmployees/davolio.bmp"
 }
 ```
 
 </details>
 
-
 ## Level 4 - Mutations
+
  <details>
   <summary>Helpful Resources</summary>
   * [AWS Resource](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html#adding-a-mutation-type)
@@ -171,27 +174,24 @@ Based on the previous levels, build the following:
 
 Update order schema entry
 
-```
+```graphql
 type Mutation {
-	updateOrder(OrderID: Int, ShippedDate: String): Order
+  updateOrder(OrderID: Int, ShippedDate: String): Order
 }
 ```
 
-
 ## Boss
- 
- * Add another data source for AppSync (lambda function).
- * Extend a type in the schema to use the new data source by attaching a resolver.
- * Build a query and show us customer data with new information!
- 
+
+- Add another data source for AppSync (lambda function).
+- Extend a type in the schema to use the new data source by attaching a resolver.
+- Build a query and show us customer data with new information!
+
  <details>
   <summary>Suggested Data Sources</summary>
   
   * [JSON Currency Exchange](http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y)
   * [Google Trends](https://trends.google.com/trends/)
 </details>
- 
- 
 
  <details>
   <summary>Additional Resources</summary>
@@ -205,8 +205,8 @@ type Mutation {
 
 Show us the constructed queries!
 
-
 ## Data Sources
+
 https://github.com/tmcnab/northwind-mongo
 
 https://www.csvjson.com/csv2json
